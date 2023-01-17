@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+{% load bootstrap3 %}
+{% block header %}
+<h2>
+    Войдите в свою учетную запись
+</h2>
+{% endblock header %}
+{% block content %}
+
+
+<form method="post" action="{% url 'user:login' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit">Войти</button>
+    {% endbuttons %}
+    
+    <input type="hidden" name="text" value=" {% url 'index' %} ">
+</form>
+{% endblock content %}
