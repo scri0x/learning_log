@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block header %}
+<h2>
+  Добавить новую запись в: <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
+</h2>
+{% endblock header %}
+{% block content %}
+
+<form method='post' class="form">
+ {% csrf_token %}
+ {% bootstrap_form form %}
+ {% buttons %}
+ <button name='submit'>Добавить запись</button>
+ {% endbuttons %}
+</form>
+{% endblock content %}
